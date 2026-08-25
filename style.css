@@ -16,6 +16,7 @@ body {
   position: relative;
   padding: 20px;
 }
+
 .stars-bg {
   position: fixed;
   top: 0;
@@ -43,6 +44,7 @@ body {
     transform: translateY(-50%);
   }
 }
+
 .container {
   max-width: 650px;
   width: 100%;
@@ -54,6 +56,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
+
 .title {
   font-size: 3rem;
   font-weight: 800;
@@ -63,6 +66,7 @@ body {
   -webkit-text-fill-color: transparent;
   letter-spacing: -1px;
 }
+
 .description {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -78,10 +82,9 @@ body {
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 8px;
   display: inline-block;
 }
+
 .error-box {
   background: rgba(255, 0, 0, 0.05);
   border: 1px dashed rgba(255, 50, 50, 0.4);
@@ -123,6 +126,7 @@ body {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
 }
 
 .social-link:hover {
