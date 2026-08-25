@@ -145,6 +145,35 @@ body {
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
 }
 
+.glass-orb {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 0 15px 0 rgba(255, 255, 255, 0.25);
+  cursor: grab;
+  z-index: 1000;
+  touch-action: none;
+  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-orb:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.5),
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.4);
+}
+
 @media (max-width: 480px) {
   .title {
     font-size: 2.2rem;
