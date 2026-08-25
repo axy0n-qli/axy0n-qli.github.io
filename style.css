@@ -5,9 +5,9 @@
 }
 
 body {
-  background-color: #000000;
+  background-color: #050508;
   color: #ffffff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -24,16 +24,17 @@ body {
   width: 100%;
   height: 200%;
   background: 
-    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 40px 70px, rgba(255, 255, 255, 0.5), rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 50px 160px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 130px 80px, rgba(255, 255, 255, 0.6), rgba(0,0,0,0));
+    radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2.5px 2.5px at 60px 120px, #ff99dd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 110px 50px, #70a1ff, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 180px 160px, #ffdd67, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 240px 90px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(3.5px 3.5px at 310px 210px, #00d2d3, rgba(0,0,0,0));
   background-repeat: repeat;
-  background-size: 200px 200px;
-  animation: scrollBg 20s linear infinite;
+  background-size: 350px 350px;
+  animation: scrollBg 25s linear infinite;
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 @keyframes scrollBg {
@@ -49,29 +50,35 @@ body {
   max-width: 650px;
   width: 100%;
   text-align: center;
-  background: rgba(15, 15, 15, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  padding: 45px 30px;
+  border-radius: 32px;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .title {
   font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 15px;
-  background: linear-gradient(135deg, #ffffff, #888888);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -1px;
+  margin-bottom: 18px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.6;
-  color: #cccccc;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 35px;
+  font-weight: 400;
 }
 
 .projects-section {
@@ -83,27 +90,31 @@ body {
   margin-bottom: 15px;
   color: #ffffff;
   display: inline-block;
+  font-weight: 700;
 }
 
 .error-box {
-  background: rgba(255, 0, 0, 0.05);
-  border: 1px dashed rgba(255, 50, 50, 0.4);
-  border-radius: 12px;
-  padding: 20px;
+  background: rgba(255, 50, 50, 0.12);
+  border: 1px dashed rgba(255, 100, 100, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 22px;
   margin-top: 10px;
 }
 
 .error-code {
-  font-family: monospace;
-  font-weight: bold;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 700;
   font-size: 1.2rem;
-  color: #ff4d4d;
+  color: #ff5e5e;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
 }
 
 .error-text {
-  color: #aaaaaa;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
 }
 
@@ -116,62 +127,36 @@ body {
 
 .social-link {
   color: #ffffff;
-  font-size: 2.2rem;
-  transition: all 0.3s ease;
+  font-size: 2rem;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-decoration: none;
-}
-
-.social-link:hover {
-  transform: translateY(-5px);
-}
-
-.social-link.github:hover {
-  color: #ffffff;
-  border-color: #ffffff;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-.social-link.youtube:hover {
-  color: #ff0000;
-  border-color: #ff0000;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-}
-
-.glass-orb {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.37),
-    inset 0 0 15px 0 rgba(255, 255, 255, 0.25);
-  cursor: grab;
-  z-index: 1000;
-  touch-action: none;
-  user-select: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.glass-orb:active {
-  cursor: grabbing;
-  transform: scale(0.95);
-  box-shadow: 
-    0 12px 40px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 20px 0 rgba(255, 255, 255, 0.4);
+.social-link:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.social-link.github:hover {
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+}
+
+.social-link.youtube:hover {
+  color: #ff4d4d;
+  box-shadow: 0 10px 25px rgba(255, 77, 77, 0.35);
 }
 
 @media (max-width: 480px) {
@@ -181,5 +166,10 @@ body {
   
   .description {
     font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 35px 20px;
+    border-radius: 26px;
   }
 }
