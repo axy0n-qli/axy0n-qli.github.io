@@ -46,16 +46,83 @@ body {
   }
 }
 
+.liquid-glass {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.lg-overlay-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: rgba(6, 6, 12, 0.4);
+  pointer-events: none;
+}
+
+.lg-filter-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.glass-box {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.lg-content {
+  position: relative;
+  z-index: 3;
+}
+
+
+.liquid-glass.lg-button .lg-overlay-bg {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.liquid-glass.lg-button .glass-box {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 0 14px rgba(255, 255, 255, 0.18);
+}
+
+
+.liquid-glass.lg-fallback .lg-overlay-bg {
+  background: rgba(8, 8, 14, 0.55);
+}
+
+.liquid-glass.lg-button.lg-fallback .lg-overlay-bg {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-box {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(10, 10, 16, 0.92) !important;
+  }
+  .liquid-glass.lg-button .glass-box {
+    background: rgba(30, 30, 36, 0.92) !important;
+  }
+}
+
 .container {
   max-width: 650px;
   width: 100%;
   text-align: center;
-  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   border-left: 1px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
   padding: 45px 30px;
   border-radius: 32px;
   box-shadow: 
@@ -94,13 +161,14 @@ body {
 }
 
 .error-box {
-  background: rgba(255, 50, 50, 0.12);
   border: 1px dashed rgba(255, 100, 100, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-radius: 18px;
   padding: 22px;
   margin-top: 10px;
+}
+
+.error-box .lg-overlay-bg {
+  background: rgba(255, 50, 50, 0.14);
 }
 
 .error-code {
@@ -135,18 +203,16 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   text-decoration: none;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .social-link:hover {
   transform: translateY(-4px) scale(1.05);
-  background: rgba(255, 255, 255, 0.22);
+}
+
+.social-link:hover .lg-overlay-bg {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .social-link.github:hover {
@@ -157,6 +223,31 @@ body {
 .social-link.youtube:hover {
   color: #ff4d4d;
   box-shadow: 0 10px 25px rgba(255, 77, 77, 0.35);
+}
+
+.glass-orb {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: grab;
+  z-index: 1000;
+  touch-action: none;
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.glass-orb.dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.glass-orb.dragging .glass-box {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.25);
 }
 
 @media (max-width: 480px) {
