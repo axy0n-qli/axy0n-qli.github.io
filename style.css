@@ -32,7 +32,8 @@ body {
     radial-gradient(3.5px 3.5px at 310px 210px, #00d2d3, rgba(0,0,0,0));
   background-repeat: repeat;
   background-size: 350px 350px;
-  animation: scrollBg 25s linear infinite;
+  animation: scrollBg 25s steps(750) infinite;
+  will-change: transform;
   z-index: -1;
   opacity: 0.85;
 }
@@ -57,8 +58,8 @@ body {
   inset: 0;
   z-index: 1;
   border-radius: inherit;
-  background: rgba(6, 6, 12, 0.4);
   pointer-events: none;
+  background: rgba(6, 6, 12, 0.4);
 }
 
 .lg-filter-layer {
@@ -84,36 +85,8 @@ body {
   z-index: 3;
 }
 
-
-.liquid-glass.lg-button .lg-overlay-bg {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.liquid-glass.lg-button .glass-box {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 0 14px rgba(255, 255, 255, 0.18);
-}
-
-
 .liquid-glass.lg-fallback .lg-overlay-bg {
   background: rgba(8, 8, 14, 0.55);
-}
-
-.liquid-glass.lg-button.lg-fallback .lg-overlay-bg {
-  background: rgba(255, 255, 255, 0.14);
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .glass-box {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: rgba(10, 10, 16, 0.92) !important;
-  }
-  .liquid-glass.lg-button .glass-box {
-    background: rgba(30, 30, 36, 0.92) !important;
-  }
 }
 
 .container {
@@ -161,15 +134,11 @@ body {
 }
 
 .error-box {
-  background-color: rgba(255, 0, 0, 0.2);
+  background: rgba(255, 50, 50, 0.12);
   border: 1px dashed rgba(255, 100, 100, 0.4);
   border-radius: 18px;
   padding: 22px;
   margin-top: 10px;
-}
-
-.error-box .lg-overlay-bg {
-  background: rgba(255, 50, 50, 0.14);
 }
 
 .error-code {
@@ -204,16 +173,18 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   text-decoration: none;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .social-link:hover {
   transform: translateY(-4px) scale(1.05);
-}
-
-.social-link:hover .lg-overlay-bg {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .social-link.github:hover {
@@ -221,9 +192,9 @@ body {
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
 }
 
-.social-link.youtube:hover {
-  color: #ff4d4d;
-  box-shadow: 0 10px 25px rgba(255, 77, 77, 0.35);
+.social-link.discord:hover {
+  color: #5865f2;
+  box-shadow: 0 10px 25px rgba(88, 101, 242, 0.35);
 }
 
 .glass-orb {
@@ -233,16 +204,30 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
   cursor: grab;
   z-index: 1000;
   touch-action: none;
   user-select: none;
+  overflow: hidden;
   transition: box-shadow 0.2s ease;
 }
 
 .glass-orb.dragging {
   cursor: grabbing;
   transition: none;
+}
+
+.glass-orb .lg-overlay-bg {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-orb .glass-box {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 0 14px rgba(255, 255, 255, 0.18);
 }
 
 .glass-orb.dragging .glass-box {
