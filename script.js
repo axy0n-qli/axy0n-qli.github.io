@@ -174,7 +174,20 @@
     window.addEventListener("touchend", up);
   }
 
+  function initBanner() {
+    var kao = document.querySelector(".kao-banner");
+    if (!kao) return;
+    document.documentElement.style.setProperty("--kao-h", kao.offsetHeight + "px");
+    var close = kao.querySelector(".kao-banner-close");
+    if (close) {
+      close.addEventListener("click", function () {
+        document.documentElement.style.setProperty("--kao-h", "0px");
+      });
+    }
+  }
+
   function init() {
+    initBanner();
     initGlass();
     initOrb();
   }
