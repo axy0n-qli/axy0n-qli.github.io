@@ -2,5 +2,6 @@
 My website!
 
 ⚠️ Liquid Glass work partial on Safari
+Performance issue on mobile (tested on Android)
 
 Liquid Glass inspired by the repo of Nik Delvin https://github.com/nikdelvin/liquid-glass
