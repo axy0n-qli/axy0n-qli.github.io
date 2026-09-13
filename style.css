@@ -32,19 +32,37 @@ body > .kao-banner {
   left: 0;
   width: 100%;
   height: 200%;
-  background: 
+  background:
     radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2.5px 2.5px at 60px 120px, #ff99dd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 60px 120px, #ff99dd, rgba(0,0,0,0)),
     radial-gradient(2px 2px at 110px 50px, #70a1ff, rgba(0,0,0,0)),
-    radial-gradient(3px 3px at 180px 160px, #ffdd67, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 180px 160px, #ffdd67, rgba(0,0,0,0)),
     radial-gradient(2px 2px at 240px 90px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(3.5px 3.5px at 310px 210px, #00d2d3, rgba(0,0,0,0));
+    radial-gradient(2px 2px at 310px 210px, #00d2d3, rgba(0,0,0,0));
   background-repeat: repeat;
-  background-size: 350px 350px;
-  animation: scrollBg 25s steps(750) infinite;
+  background-size: 300px 300px;
+  animation: scrollBg 60s linear infinite;
   will-change: transform;
   z-index: -1;
-  opacity: 0.85;
+  opacity: 0.7;
+}
+
+/* Reduce animation complexity for mobile */
+@media (max-width: 768px) {
+  .stars-bg {
+    animation: scrollBg 80s linear infinite;
+    opacity: 0.5;
+    background-size: 250px 250px;
+  }
+
+  /* Further reduce for very small screens */
+  @media (max-width: 480px) {
+    .stars-bg {
+      animation: scrollBg 100s linear infinite;
+      opacity: 0.3;
+      background-size: 200px 200px;
+    }
+  }
 }
 
 @keyframes scrollBg {
@@ -142,27 +160,105 @@ body > .kao-banner {
   font-weight: 700;
 }
 
-.error-box {
-  background: rgba(255, 50, 50, 0.12);
-  border: 1px dashed rgba(255, 100, 100, 0.4);
-  border-radius: 18px;
-  padding: 22px;
+.projects-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-top: 10px;
 }
 
-.error-code {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #ff5e5e;
+.project-box {
+  background: rgba(30, 30, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  padding: 25px 20px;
+  width: 280px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  text-decoration: none;
   display: block;
-  margin-bottom: 6px;
-  letter-spacing: 1px;
+  color: inherit; /* Ensure text color is inherited, not default link blue */
 }
 
-.error-text {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
+.project-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: all 0.6s;
+}
+
+.project-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: rgba(255, 255, 255, 0.4);
+  border-left-color: rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+.project-box:hover::before {
+  left: 100%;
+}
+
+.project-box h3 {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 480px) {
+  .projects-container {
+    gap: 15px;
+  }
+
+  .project-box {
+    width: 100%;
+    max-width: 280px;
+    padding: 20px 15px;
+  }
+}
+
+/* Reduce animation complexity for mobile */
+@media (max-width: 768px) {
+  .stars-bg {
+    animation: scrollBg 40s linear infinite;
+    opacity: 0.4;
+    background-size: 250px 250px;
+  }
+
+  /* Further reduce for very small screens */
+  @media (max-width: 480px) {
+    .stars-bg {
+      animation: scrollBg 50s linear infinite;
+      opacity: 0.3;
+      background-size: 200px 200px;
+    }
+  }
 }
 
 .socials {
