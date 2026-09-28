@@ -186,10 +186,18 @@
     }
   }
 
+  function initVisibility() {
+    document.body.classList.toggle("is-hidden", document.hidden);
+    document.addEventListener("visibilitychange", function () {
+      document.body.classList.toggle("is-hidden", document.hidden);
+    });
+  }
+
   function init() {
     initBanner();
     initGlass();
     initOrb();
+    initVisibility();
   }
 
   if (document.readyState === "loading") {
